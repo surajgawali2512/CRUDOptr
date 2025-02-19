@@ -1,17 +1,17 @@
-package com.Controller;
+package com.demo.Controller;
 
-import com.model.User;
-import com.repository.UserRepository;
+import com.demo.model.User;
+import com.demo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 public class UserController {
-
     @Autowired
     private UserRepository userRepository;
 
@@ -22,9 +22,11 @@ public class UserController {
     }
 
     @PostMapping("/save")
-    public String saveUser(@ModelAttribute User user, Model model) {
-        userRepository.save(user);
-        model.addAttribute("message", "User saved successfully!");
-        return "form";
+    public Object saveUser(@RequestBody User user) {
+        User user1=userRepository.save(user);
+        if(user1!=null){
+            return  user1;
+        }
+        throw new RuntimeException("User not save");
     }
 }

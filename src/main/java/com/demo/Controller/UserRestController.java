@@ -1,7 +1,7 @@
-package com.Controller;
+package com.demo.Controller;
 
-import com.model.User;
-import com.repository.UserRepository;
+import com.demo.model.User;
+import com.demo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
