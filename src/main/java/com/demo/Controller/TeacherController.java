@@ -27,4 +27,6 @@ public class TeacherController {
     public Optional<Teacher> findTeacher(@RequestParam Long id){
         return teacherService.findTeacher(id);
     }
+    @GetMapping("/delete")
+    public  boolean deleteTeacher(@RequestParam Long id){ return  teacherService.deleteTeacher(id);}
 }

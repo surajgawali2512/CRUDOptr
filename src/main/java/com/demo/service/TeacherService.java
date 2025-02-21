@@ -24,5 +24,12 @@ public class TeacherService {
     public Optional<Teacher> findTeacher(Long id){
         return  teacherRepository.findById(id);
     }
+public  boolean deleteTeacher(Long id){
+        if (id!=null) {
+            teacherRepository.deleteById(id);
+        return  true;
+        }
+        throw new RuntimeException("Unable to Delete");
 
+}
 }
