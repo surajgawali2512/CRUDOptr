@@ -6,9 +6,10 @@ import com.demo.service.TeacherService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
-@RequestMapping("/Teachers")
+@RequestMapping("/teachers")
 public class TeacherController {
     final TeacherService teacherService;
     public TeacherController(TeacherService teacherService){
@@ -21,5 +22,9 @@ public class TeacherController {
     @PostMapping
     public  Teacher createTeacher(@RequestBody Teacher teacher){
         return  teacherService.saveTeacher(teacher);
+    }
+    @GetMapping("/find")
+    public Optional<Teacher> findTeacher(@RequestParam Long id){
+        return teacherService.findTeacher(id);
     }
 }

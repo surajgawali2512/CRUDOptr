@@ -6,6 +6,7 @@ import com.demo.repository.TeacherRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TeacherService {
@@ -20,4 +21,8 @@ public class TeacherService {
         if (teacher!=null) return  teacherRepository.save(teacher);
         throw new RuntimeException("Teacher is not Saved");
     }
+    public Optional<Teacher> findTeacher(Long id){
+        return  teacherRepository.findById(id);
+    }
+
 }
