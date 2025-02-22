@@ -29,4 +29,12 @@ public class TeacherController {
     }
     @GetMapping("/delete")
     public  boolean deleteTeacher(@RequestParam Long id){ return  teacherService.deleteTeacher(id);}
+    @GetMapping("/name/{name}")
+    public List<Teacher> getByName(@PathVariable String name) {
+        return teacherService.getTeacherByName(name);
+    }
+    @GetMapping("/email/{email}")
+    public Optional<Teacher> getByEmail(@PathVariable String email) {
+        return teacherService.getTeacherByEmail(email);
+    }
 }

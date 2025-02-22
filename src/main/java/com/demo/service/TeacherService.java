@@ -3,6 +3,7 @@ package com.demo.service;
 import com.demo.model.Teacher;
 import com.demo.repository.TeacherRepository;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,6 +11,8 @@ import java.util.Optional;
 
 @Service
 public class TeacherService {
+//    @Autowired
+//    TeacherRepository teacherRepository;
     private final TeacherRepository teacherRepository;
     public  TeacherService(TeacherRepository teacherRepository){
         this.teacherRepository=teacherRepository;
@@ -32,4 +35,15 @@ public  boolean deleteTeacher(Long id){
         throw new RuntimeException("Unable to Delete");
 
 }
+
+    public List<Teacher> getTeacherByName(String name) {
+       if (name!=null) {
+           return teacherRepository.findByName(name);
+       }
+                throw  new RuntimeException("Teacher not found");
+    }
+
+    public Optional<Teacher> getTeacherByEmail(String email) {
+        return teacherRepository.findByEmail(email);
+    }
 }
