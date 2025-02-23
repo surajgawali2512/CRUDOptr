@@ -28,11 +28,12 @@ public class TeacherService {
         return  teacherRepository.findById(id);
     }
 public  boolean deleteTeacher(Long id){
-        if (id!=null) {
+        if (id!=null&&findTeacher(id).isPresent()) {
             teacherRepository.deleteById(id);
         return  true;
         }
-        throw new RuntimeException("Unable to Delete");
+
+        throw new RuntimeException("Fatal error for Delete");
 
 }
 
