@@ -2,7 +2,6 @@ package com.demo.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-
 @Entity
 @Data
 @NoArgsConstructor
@@ -10,12 +9,14 @@ import lombok.*;
 public class Attendance {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long attendanceId;
+    private Long id;
+
+    private String date;
+    private String status;
 
     @ManyToOne
     private Student student;
 
-    private String date;
-    private String status;
+    @ManyToOne
+    private Subject subject;
 }
-

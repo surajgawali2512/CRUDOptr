@@ -1,18 +1,22 @@
 package com.demo.model;
 
+
 import jakarta.persistence.*;
 import lombok.*;
+
+
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Subject {
+class  Branch{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    private String name;
-
+    private  int Id;
+    private String branchCode;
+    private String branchName;
     @ManyToOne
-    private Course course;
+ @JoinColumn(name = "college" ,referencedColumnName = "collegeId")
+    private  College college;
+
 }
