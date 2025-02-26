@@ -2,6 +2,8 @@ package com.demo.model;
 import  jakarta.persistence.*;
 import  lombok.*;
 
+import java.util.List;
+
 @Entity
 @Data
 @NoArgsConstructor
