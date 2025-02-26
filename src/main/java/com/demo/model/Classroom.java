@@ -2,7 +2,6 @@ package com.demo.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-
 @Entity
 @Data
 @NoArgsConstructor
@@ -10,10 +9,13 @@ import lombok.*;
 public class Classroom {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long classId;
+    private Long id;
 
-    private String std;
     private String section;
-    private int totalStudents;
-}
 
+    @ManyToOne
+    private Course course;
+
+    @OneToMany(mappedBy = "classroom", cascade = CascadeType.ALL)
+    private List<Student> students;
+}

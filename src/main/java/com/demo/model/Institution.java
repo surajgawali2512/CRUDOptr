@@ -1,26 +1,24 @@
 package com.demo.model;
 
-import jakarta.persistence.Entity;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
+
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Teacher {
+public class Institution {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
+    private String address;
     private String email;
     private String phone;
-    private String qualification;
-    @Embedded
-    private Address address;
-    @ManyToOne
-    private Institution institution;
 
-    @ManyToOne
-    private Department department;
+    @OneToMany(mappedBy = "institution", cascade = CascadeType.ALL)
+    private List<Department> departments;
 }

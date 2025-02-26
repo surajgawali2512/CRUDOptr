@@ -1,12 +1,14 @@
 package com.demo.model;
-
-import jakarta.persistence.*;
+import  jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
+
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Subject {
+public class Department {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -14,5 +16,8 @@ public class Subject {
     private String name;
 
     @ManyToOne
-    private Course course;
+    private Institution institution;
+
+    @OneToMany(mappedBy = "department", cascade = CascadeType.ALL)
+    private List<Course> courses;
 }
