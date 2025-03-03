@@ -19,7 +19,7 @@ public class Teacher {
     @Embedded
     private Address address;
     @ManyToOne
-    private Institution institution;
+    private Institute institution;
 
     @ManyToOne
     private Department department;

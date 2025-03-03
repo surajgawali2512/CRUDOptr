@@ -3,13 +3,11 @@ package com.demo.model;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.List;
-
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Institution {
+public class Institute {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -18,7 +16,8 @@ public class Institution {
     private String address;
     private String email;
     private String phone;
-
-    @OneToMany(mappedBy = "institution", cascade = CascadeType.ALL)
-    private List<Department> departments;
+private String password;
+private  String databaseName;
+//    @OneToMany(mappedBy = "institution", cascade = CascadeType.ALL)
+//    private List<Department> departments;
 }

@@ -16,7 +16,7 @@ public class Department {
     private String name;
 
     @ManyToOne
-    private Institution institution;
+    private Institute institution;
 
     @OneToMany(mappedBy = "department", cascade = CascadeType.ALL)
     private List<Course> courses;
