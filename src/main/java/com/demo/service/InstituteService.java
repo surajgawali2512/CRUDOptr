@@ -70,26 +70,26 @@ public class InstituteService {
     public Institute createInstitute(Institute institute) {
         // Save institute details
         Institute savedInstitute = instituteRepository.save(institute);
-//
-//        // Create new database dynamically
-//        String createDbSQL = "CREATE DATABASE " + institute.getDatabaseName();
-//        jdbcTemplate.execute(createDbSQL);
-//
-//        // Apply schema to the new database
-//        String useDbSQL = "USE " + institute.getDatabaseName();
-//        jdbcTemplate.execute(useDbSQL);
-//
-//        // Create required tables
-//        String createStudentTableSQL = "CREATE TABLE students (" +
-//                "id INT PRIMARY KEY AUTO_INCREMENT, " +
-//                "name VARCHAR(255), " +
-//                "roll_no VARCHAR(50), " +
-//                "email VARCHAR(255), " +
-//                "gender VARCHAR(20))";
-//        jdbcTemplate.execute(createStudentTableSQL);
-//
-//        // Register new database in the DataSource
-//        tenantDataSourceConfig.addNewTenant(institute.getDatabaseName());
+
+        // Create new database dynamically
+        String createDbSQL = "CREATE DATABASE " + institute.getDatabaseName();
+        jdbcTemplate.execute(createDbSQL);
+
+        // Apply schema to the new database
+        String useDbSQL = "USE " + institute.getDatabaseName();
+        jdbcTemplate.execute(useDbSQL);
+
+        // Create required tables
+        String createStudentTableSQL = "CREATE TABLE students (" +
+                "id INT PRIMARY KEY AUTO_INCREMENT, " +
+                "name VARCHAR(255), " +
+                "roll_no VARCHAR(50), " +
+                "email VARCHAR(255), " +
+                "gender VARCHAR(20))";
+        jdbcTemplate.execute(createStudentTableSQL);
+
+        // Register new database in the DataSource
+        tenantDataSourceConfig.addNewTenant(institute.getDatabaseName());
 
         return savedInstitute;
     }

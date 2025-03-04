@@ -1,7 +1,7 @@
 package com.demo.filter;
 
 
-import com.demo.config.TenantContext;
+import com.demo.tenant.TenantContext;
 import jakarta.servlet.*;
 import jakarta.servlet.http.HttpServletRequest;
 

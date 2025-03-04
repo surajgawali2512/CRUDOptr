@@ -1,5 +1,4 @@
-package com.demo.config;
-
+package com.demo.tenant;
 
 public class TenantContext {
     private static final ThreadLocal<String> currentTenant = new ThreadLocal<>();
@@ -16,4 +15,3 @@ public class TenantContext {
         currentTenant.remove();
     }
 }
-

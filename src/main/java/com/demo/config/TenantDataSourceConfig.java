@@ -107,6 +107,7 @@
 
 package com.demo.config;
 
+import com.demo.tenant.MultiTenantDataSource;
 import com.zaxxer.hikari.HikariDataSource;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
