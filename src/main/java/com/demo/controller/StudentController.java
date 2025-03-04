@@ -1,9 +1,7 @@
-package com.demo.Controller;
+package com.demo.controller;
 
 import com.demo.model.Student;
-import com.demo.model.Teacher;
 import com.demo.service.StudentService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

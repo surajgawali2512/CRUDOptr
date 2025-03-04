@@ -12,6 +12,8 @@ public class Institute {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+
+
     private String name;
     private String address;
     private String email;
@@ -20,4 +22,7 @@ private String password;
 private  String databaseName;
 //    @OneToMany(mappedBy = "institution", cascade = CascadeType.ALL)
 //    private List<Department> departments;
+public String getDatabaseName() {
+    return databaseName;
+}
 }
