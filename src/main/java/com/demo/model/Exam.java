@@ -10,7 +10,7 @@ import lombok.*;
 public class Exam {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long examId;
+    private Long id; // Fixed examId to match naming convention
 
     private String name;
     private String date;

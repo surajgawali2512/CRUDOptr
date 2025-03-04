@@ -2,6 +2,7 @@ package com.demo.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -14,5 +15,6 @@ public class Subject {
     private String name;
 
     @ManyToOne
+    @JoinColumn(name = "course_id", referencedColumnName = "id", nullable = false)
     private Course course;
 }

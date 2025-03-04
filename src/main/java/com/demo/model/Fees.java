@@ -2,6 +2,7 @@ package com.demo.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -16,5 +17,6 @@ public class Fees {
     private String status;
 
     @ManyToOne
+    @JoinColumn(name = "student_id", referencedColumnName = "id", nullable = false)
     private Student student;
 }

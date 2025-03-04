@@ -1,8 +1,8 @@
 package com.demo.model;
 
-import jakarta.persistence.Entity;
 import jakarta.persistence.*;
 import lombok.*;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -16,11 +16,15 @@ public class Teacher {
     private String email;
     private String phone;
     private String qualification;
+
     @Embedded
     private Address address;
+
     @ManyToOne
+    @JoinColumn(name = "institution_id", referencedColumnName = "id", nullable = false)
     private Institution institution;
 
     @ManyToOne
+    @JoinColumn(name = "department_id", referencedColumnName = "id", nullable = false)
     private Department department;
 }

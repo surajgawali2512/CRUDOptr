@@ -2,7 +2,6 @@ package com.demo.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-
 import java.util.List;
 
 @Entity
@@ -12,13 +11,14 @@ import java.util.List;
 public class Classroom {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long id;  // Ensuring AUTO_INCREMENT is on primary key
 
     private String section;
 
     @ManyToOne
+    @JoinColumn(name = "course_id", referencedColumnName = "id", nullable = false)
     private Course course;
 
-    @OneToMany(mappedBy = "classroom", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "classroom", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Student> students;
 }

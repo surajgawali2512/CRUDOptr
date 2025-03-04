@@ -2,7 +2,6 @@ package com.demo.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-
 import java.util.List;
 
 @Entity
@@ -19,6 +18,6 @@ public class Institution {
     private String email;
     private String phone;
 
-    @OneToMany(mappedBy = "institution", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "institution", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Department> departments;
 }

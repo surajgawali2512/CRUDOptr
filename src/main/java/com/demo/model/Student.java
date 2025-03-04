@@ -18,14 +18,18 @@ public class Student {
     private String email;
     private String phone;
     private String gender;
-@Embedded
-private Address address;
+
+    @Embedded
+    private Address address;
+
     @ManyToOne
+    @JoinColumn(name = "institution_id", referencedColumnName = "id", nullable = false)
     private Institution institution;
 
     @ManyToOne
+    @JoinColumn(name = "classroom_id", referencedColumnName = "id", nullable = false)
     private Classroom classroom;
 
-    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Attendance> attendanceRecords;
 }

@@ -1,7 +1,7 @@
 package com.demo.model;
-import  jakarta.persistence.*;
-import  lombok.*;
 
+import jakarta.persistence.*;
+import lombok.*;
 import java.util.List;
 
 @Entity
@@ -17,8 +17,9 @@ public class Course {
     private int duration; // In years
 
     @ManyToOne
+    @JoinColumn(name = "department_id", referencedColumnName = "id", nullable = false)
     private Department department;
 
-    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Classroom> classrooms;
 }
