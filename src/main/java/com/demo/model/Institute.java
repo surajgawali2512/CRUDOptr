@@ -22,7 +22,8 @@ private String password;
 private  String databaseName;
 //    @OneToMany(mappedBy = "institution", cascade = CascadeType.ALL)
 //    private List<Department> departments;
-public String getDatabaseName() {
-    return databaseName;
-}
+
+    public String getDatabaseName() {
+        return databaseName;
+    }
 }
